@@ -5,7 +5,7 @@ Any more questions, please do not hesitate to contact me: 20245227066@stu.suda.
 
 ## Introduction
 CDVGL-PDA is a contrastive dual-view graph learning framework for phosphorylation site--disease association prediction.
-
+![Overview of CDVGL-PDA framework](architecture.png)
 ## Requirements
 
 - python 3.10.16
