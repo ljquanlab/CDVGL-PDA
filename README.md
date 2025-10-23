@@ -16,33 +16,34 @@ CDVGL-PDA is a contrastive dual-view graph learning framework for phosphorylatio
 - cuda 12.9
 
 ## Quick start
-1. cd src
-2. train and test
+1. Unzip the zip files(71_psite_seq_blossum.zip, and site_site_NW_similarity.zip) in data/graph_feature to the current folder.
+2. cd src
+3. train and test
 - Train and test the model on low-similarity benchmarks
 ```
 # protein-level split
 python main_hard.py --generalization_benchmarks protein_split
 
 # or psite-level split
-python main_hard.py --generalization_benchmarks psite_split
+# python main_hard.py --generalization_benchmarks psite_split
 ```
 - Perform 10-fold cross-validation on benchmarks with different positive-to-negative ratios (including both balanced and imbalanced settings)
 ```
 # Balanced benchmark (1:1)
 python main_10fold.py --baseline_benchmarks site_disease_1_1
 
-# Imbalanced benchmarks (1:5 and 1:10)
-python main_10fold.py --baseline_benchmarks site_disease_1_5 
-python main_10fold.py --baseline_benchmarks site_disease_1_10
+# or Imbalanced benchmarks (1:5 and 1:10)
+# python main_10fold.py --baseline_benchmarks site_disease_1_5 
+# python main_10fold.py --baseline_benchmarks site_disease_1_10
 ```
 - Train and test the model once on benchmarks with different positive-to-negative ratios 
 ```
 # Balanced benchmark (1:1)
 python main_random.py --baseline_benchmarks site_disease_1_1
 
-# Imbalanced benchmarks (1:5 and 1:10)
-python main_random.py --baseline_benchmarks site_disease_1_5
-python main_random.py --baseline_benchmarks site_disease_1_10
+# or Imbalanced benchmarks (1:5 and 1:10)
+# python main_random.py --baseline_benchmarks site_disease_1_5
+# python main_random.py --baseline_benchmarks site_disease_1_10
 ```
 ## Data description
 ***data/datasets***:
