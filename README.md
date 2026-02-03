@@ -53,7 +53,7 @@ python main_different_radio.py --baseline_benchmarks site_disease_1_1
 These scripts support users to directly input phosphorylation sites and diseases, and predict their associations. 
 
 - Download [BioBert](https://huggingface.co/dmis-lab/biobert-v1.1) and place it in src/tools/biobert-v1_1
-- Download all pre-trained model weights and place them in src/model_weights
+- Download all pre-trained model weights from [zenodo](https://zenodo.org/records/18430293) and place them in src/model_weights
 
 
 ```
