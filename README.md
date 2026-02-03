@@ -7,7 +7,7 @@ Any more questions, please do not hesitate to contact me: 20245227066@stu.suda.
 CDVGL-PDA is a contrastive dual-view graph learning framework for phosphorylation site-disease association prediction.
 ![Overview of CDVGL-PDA framework](architecture.png)
 ## Requirements
-
+device: Tesla V100 32GB/ Tesla A100 40GB
 - python 3.10.13
 - pytorch 2.4.0
 - numpy 2.0.1
