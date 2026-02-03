@@ -1,4 +1,0 @@
-data:
-protein_split: 基于蛋白质的NW相似度划分的数据集
-psite_split: 基于磷酸化位点序列的NW相似度划分的数据集
-different_radio: 不同比例的的正负样本下的数据集
