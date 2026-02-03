@@ -1,0 +1,4 @@
+data: psite_split | ACC: 0.8019 | Precision: 0.8684 | Recall: 0.7116 | F1: 0.7822 | MCC: 0.6139 | AUC: 0.8542 | AUPR: 0.8636 | way: mine
+data: pair_split | ACC: 0.7817 | Precision: 0.9055 | Recall: 0.6290 | F1: 0.7423 | MCC: 0.5916 | AUC: 0.8261 | AUPR: 0.8667 | way: mine
+data: protein_split | ACC: 0.7973 | Precision: 0.8517 | Recall: 0.7199 | F1: 0.7803 | MCC: 0.6018 | AUC: 0.8505 | AUPR: 0.8714 | way: mine
+
