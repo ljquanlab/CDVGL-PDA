@@ -7,7 +7,7 @@ Any more questions, please do not hesitate to contact me: 20245227066@stu.suda.
 CDVGL-PDA is a contrastive dual-view graph learning framework for phosphorylation site-disease association prediction.
 ![Overview of CDVGL-PDA framework](architecture.png)
 ## Requirements
-device: Tesla V100 32GB/ Tesla A100 40GB
+All experiments were run on Ubuntu 20.04.5 LTS with NVIDIA Tesla V100 (32GB) or Tesla A100 (40GB) GPUs, using NVIDIA driver 535.104.05.
 - python 3.10.13
 - pytorch 2.4.0
 - numpy 2.0.1
@@ -64,6 +64,26 @@ python predict_CDVGL-PDA.py
 # predict_feature_only.py: uses a feature-only variant of CDVGL-PDA, ignoring graph structure, suitable for predicting associations for new nodes not present in the graph.
 
 python predict_feature_only.py
+
+"""
+An example of predict_feature_only.py:
+
+Phosphorylation Site - Disease Association Prediction System
+==================================================
+data/new_PDA.csv contains some new PDAs to choose from.
+Please enter protein sequence: MDPGAALQRRAGGGGGLGAGSPALSGGQGRRRKQPPRPADFKLQVIIIGSRGVGKTSLMERFTDDTFCEACKSTVGVDFKIKTVELRGKKIRLQIWDTAGQERFNSITSAYYRSAKGIILVYDITKKETFDDLPKWMKMIDKYASEDAELLLVGNKLDCETDREITRQQGEKFAQQITGMRFCEASAKDNFNVDEIFLKLVDDILKKMPLDILRNELSNSILSLQPEPEIPPELPPPRPHVRCC
+Please enter phosphorylation site position (starting from 1): 106
+Please enter disease name: Parkinson Disease
+
+==================================================
+Prediction Results:
+==================================================
+Extracted sequence: CKSTVGVDFKIKTVELRGKKIRLQIWDTAGQERFNSITSAYYRSAKGIILVYDITKKETFDDLPKWMKMID
+Disease name: Parkinson Disease
+Association probability: 0.6923
+Prediction: Associated
+
+"""
 
 ```
 
