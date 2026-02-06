@@ -48,7 +48,7 @@ python main_different_radio.py --baseline_benchmarks site_disease_1_1
 # python main_different_radio.py --baseline_benchmarks site_disease_1_5
 # python main_different_radio.py --baseline_benchmarks site_disease_1_10
 ```
-3. prediction scripts. 
+4. prediction scripts. 
 
 These scripts support users to directly input phosphorylation sites and diseases, and predict their associations. 
 
