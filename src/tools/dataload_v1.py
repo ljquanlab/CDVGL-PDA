@@ -89,12 +89,12 @@ def load_edge_matrix( ):
     protein_gene = np.loadtxt(graph_path + "protein_gene_mat.txt")
     
     site_site = np.loadtxt(graph_path + "psite_nw_identity_mat.txt")  
-    site_site[site_site < 50] = 0  #  40 50 60 | 50
-    num_site = len(site_site)
-    site_site = site_site - np.identity(num_site)
+    site_site[site_site < 50] = 0  
+     
+     
     
     disease_disease = np.loadtxt(graph_path + "MeshDAG_sim_mat.txt", dtype=np.float32)
-    disease_disease[disease_disease < 0.2] = 0  # 0.1 0.2 0.3  |0.2
+    disease_disease[disease_disease < 0.2] = 0  
     num_diease = len(disease_disease)
     disease_disease = disease_disease - np.identity(num_diease)
 
