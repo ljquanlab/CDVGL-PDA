@@ -229,7 +229,7 @@ class HGTLayer(nn.Module):
                 t = G.nodes[ntype].data["t"].view(-1, self.out_dim)
                 trans_out = self.drop(self.a_linears[n_id](t))
                 
-                h[ntype] = self.o_linears[n_id](h[ntype])# new add, ensure that the feature dimension of h [type] is consistent with trans_out
+                h[ntype] = self.o_linears[n_id](h[ntype]) #  ensure that the feature dimension of h [type] is consistent with trans_out
                 
                 trans_out = trans_out * alpha + h[ntype] * (1 - alpha)
                 if self.use_norm:
@@ -427,11 +427,11 @@ class GRU_Model(nn.Module):
         center = (L + 1) // 2
 
         # 划分左右片段
-        left = x[:, :center, :]   # [B, 36, 128] 36
-        right = x[:, center-1:, :]  # [B, 36, 128] 35
+        left = x[:, :center, :]   # [B, 36, 128]  
+        right = x[:, center-1:, :]  # [B, 36, 128] 
         
-        out_left, h_left = self.gru_left(left)     # out_left: [B, 36, 256], h_left: [1, B, 256]
-        out_right, h_right = self.gru_right(right) # out_right: [B, 36, 256], h_right: [1, B, 256]
+        out_left, h_left = self.gru_left(left)     # out_left: [B, 36, 256] 
+        out_right, h_right = self.gru_right(right) # out_right: [B, 36, 256] 
         
         out_left = out_left.mean(dim=1)     # [B, 256]
         out_right = out_right.mean(dim=1)   # [B, 256]
