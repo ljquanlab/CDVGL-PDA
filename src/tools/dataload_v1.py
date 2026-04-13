@@ -1,0 +1,190 @@
+from random import random
+
+import numpy
+import numpy as np
+import dgl
+import scipy.sparse as sp
+import torch
+from sklearn.metrics import roc_auc_score, precision_recall_curve, auc
+from scipy.sparse import coo_matrix
+import torch as th
+import sys
+import os
+
+#10
+PS_PR_A = 'psite_protein'
+PS_K_A = 'psite_kinase' 
+PS_PC_A = 'psite_process'
+PS_F_A = 'psite_function'
+
+D_GO_A = 'disease_go'
+D_GE_A = 'disease_gene'
+D_PW_A = 'disease_pathway'
+
+D_PS_A = 'disease_psite'
+PR_PS_A = 'protein_psite'
+K_PS_A = 'kinase_psite' 
+PC_PS_A = 'process_psite'
+F_PS_A = 'function_psite'
+
+GO_D_A = 'go_disease'
+GE_D_A = 'gene_disease'
+PW_D_A = 'pathway_disease'
+
+PS_PS_I = 'psite_psite'
+D_D_I = 'disease_disease'
+
+psite = 'phosphorylation_site'
+kinase = 'kinase'
+protein = 'protein'
+func = 'function'
+process = 'process'
+disease = 'disease'
+
+go = 'GO'
+gene = 'gene'
+pathway = 'pathway'
+
+graph_path = "../data/graph_feature/" 
+node_path = "../data/node_feature/" 
+
+def load_node_feature():
+    site_features = torch.tensor(np.loadtxt(node_path + "psite_blosum_128.txt", delimiter="\t"), dtype=torch.float32) 
+    disease_features = torch.tensor(np.loadtxt(node_path + "disease_128.txt", delimiter="\t"), dtype=torch.float32)
+    
+    kinase_features = torch.tensor(np.loadtxt(node_path + "kinase_128.txt", delimiter="\t"), dtype=torch.float32)
+    protein_features = torch.tensor(np.loadtxt(node_path + "protein_128.txt", delimiter="\t"), dtype=torch.float32)
+    func_features = torch.tensor(np.loadtxt(node_path + "function_128.txt", delimiter="\t"), dtype=torch.float32)
+    process_features = torch.tensor(np.loadtxt(node_path + "process_128.txt", delimiter="\t"), dtype=torch.float32)
+    
+    go_features = torch.tensor(np.loadtxt(node_path + "go_128.txt", delimiter="\t"), dtype=torch.float32)
+    gene_features = torch.tensor(np.loadtxt(node_path + "gene_128.txt", delimiter="\t"), dtype=torch.float32)
+    pathway_features = torch.tensor(np.loadtxt(node_path + "pathway_128.txt", delimiter="\t"), dtype=torch.float32)
+    
+    node_features = {psite: site_features, disease: disease_features, 
+                     protein: protein_features,func: func_features,process: process_features, kinase:kinase_features,
+                     go:go_features, gene:gene_features, pathway:pathway_features}
+    return node_features  
+
+def load_edge_feature(mat, weighted=False):
+    src, dst = np.nonzero(mat) 
+    
+    weights = None
+    if weighted:
+        weights = mat[src, dst].astype(float)
+        weights = torch.tensor(weights,dtype=torch.float32) 
+
+    return torch.tensor(src, dtype=torch.long), torch.tensor(dst, dtype=torch.long), weights
+
+def load_edge_matrix( ):
+    site_kinase = np.loadtxt(graph_path + "psite_kinase_mat.txt")
+    site_protein = np.loadtxt(graph_path + "psite_protein_mat.txt")
+    site_function = np.loadtxt(graph_path + "psite_function_mat.txt")
+    site_process = np.loadtxt(graph_path + "psite_process_mat.txt")
+    
+    disease_gene = np.loadtxt(graph_path + "disease_gene_mat.txt")
+    disease_go = np.loadtxt(graph_path + "disease_go_mat.txt")
+    disease_pathway = np.loadtxt(graph_path + "disease_pathway_mat.txt")
+    
+    protein_gene = np.loadtxt(graph_path + "protein_gene_mat.txt")
+    
+    site_site = np.loadtxt(graph_path + "psite_nw_identity_mat.txt")  
+    site_site[site_site < 50] = 0  #  40 50 60 | 50
+    num_site = len(site_site)
+    site_site = site_site - np.identity(num_site)
+    
+    disease_disease = np.loadtxt(graph_path + "MeshDAG_sim_mat.txt", dtype=np.float32)
+    disease_disease[disease_disease < 0.2] = 0  # 0.1 0.2 0.3  |0.2
+    num_diease = len(disease_disease)
+    disease_disease = disease_disease - np.identity(num_diease)
+
+    return site_kinase, site_protein, site_function, site_process, site_site, disease_disease, disease_gene, disease_go, disease_pathway, protein_gene
+
+
+def ConstructGraph_A(site_kinase, site_protein, site_function, site_process, site_site, disease_disease, disease_gene, disease_go, disease_pathway,protein_gene):
+    
+    site_kinase_src, site_kinase_dst, _ = load_edge_feature(site_kinase, weighted=False)
+    site_protein_src, site_protein_dst, _ = load_edge_feature(site_protein, weighted=False)
+    site_function_src, site_function_dst, _ = load_edge_feature(site_function, weighted=False)
+    site_process_src, site_process_dst, _ = load_edge_feature(site_process, weighted=False)
+    
+    disease_gene_src, disease_gene_dst, _ = load_edge_feature(disease_gene, weighted=False)
+    disease_go_src, disease_go_dst, _ = load_edge_feature(disease_go, weighted=False)   
+    disease_pathway_src, disease_pathway_dst, _ = load_edge_feature(disease_pathway, weighted=False)
+    
+    protein_gene_src, protein_gene_dst, _ = load_edge_feature(protein_gene, weighted=False)
+
+    site_site_src, site_site_dst, _ = load_edge_feature(site_site, weighted=False)
+    disease_disease_src, disease_disease_dst, _ = load_edge_feature(disease_disease, weighted=False)
+    
+    
+    PS_K_pair = (site_kinase_src, site_kinase_dst)
+    PS_PR_pair = (site_protein_src, site_protein_dst)
+    PS_F_pair = (site_function_src, site_function_dst)
+    PS_PC_pair = (site_process_src, site_process_dst)
+    
+    D_GE_pair = (disease_gene_src, disease_gene_dst)
+    D_GO_pair = (disease_go_src, disease_go_dst)
+    D_PW_pair = (disease_pathway_src, disease_pathway_dst)    
+
+    PS_PS_pair = (site_site_src, site_site_dst)
+    D_D_pair = (disease_disease_src, disease_disease_dst)
+
+    K_PS_pair = (site_kinase_dst, site_kinase_src)
+    PR_PS_pair = (site_protein_dst, site_protein_src)
+    F_PS_pair = (site_function_dst, site_function_src)
+    PC_PS_pair = (site_process_dst, site_process_src)
+    
+    GE_D_pair = (disease_gene_dst, disease_gene_src)
+    GO_D_pair = (disease_go_dst, disease_go_src)
+    PW_D_pair = (disease_pathway_dst, disease_pathway_src)
+    
+    PR_GE_pair = (protein_gene_src, protein_gene_dst)
+    GE_PR_pair = (protein_gene_dst, protein_gene_src)
+    
+    graph = {
+        (psite,PS_K_A,kinase):PS_K_pair,
+        (psite,PS_PR_A,protein):PS_PR_pair,
+        (psite,PS_F_A,func):PS_F_pair,
+        (psite,PS_PC_A,process):PS_PC_pair,
+        
+        (kinase, K_PS_A, psite): K_PS_pair,
+        (protein, PR_PS_A, psite): PR_PS_pair,
+        (func, F_PS_A, psite): F_PS_pair,
+        (process, PC_PS_A, psite): PC_PS_pair,
+
+        
+        (psite, PS_PS_I, psite): PS_PS_pair,
+        (disease, D_D_I, disease): D_D_pair,
+        
+        (disease, D_GE_A, gene): D_GE_pair,
+        (disease, D_GO_A, go): D_GO_pair,
+        (disease, D_PW_A, pathway): D_PW_pair,
+        
+        (gene, GE_D_A, disease): GE_D_pair,
+        (go, GO_D_A, disease): GO_D_pair,
+        (pathway, PW_D_A, disease): PW_D_pair,
+        
+        (protein, 'protein_gene', gene): PR_GE_pair,
+        (gene, 'gene_protein', protein): GE_PR_pair,
+        
+    }
+    
+    G = dgl.heterograph(graph)
+    
+    
+    node_features = load_node_feature()
+    G.nodes[psite].data['inp'] = node_features[psite] 
+    G.nodes[disease].data['inp'] = node_features[disease] 
+    G.nodes[kinase].data['inp'] = node_features[kinase] 
+    G.nodes[protein].data['inp'] = node_features[protein] 
+    G.nodes[func].data['inp'] = node_features[func] 
+    G.nodes[process].data['inp'] = node_features[process] 
+    
+    G.nodes[gene].data['inp'] = node_features[gene]
+    G.nodes[go].data['inp'] = node_features[go]
+    G.nodes[pathway].data['inp'] = node_features[pathway]
+    
+    return G
+
+

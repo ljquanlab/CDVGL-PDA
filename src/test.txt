@@ -1,0 +1,1 @@
+data: 1_psite_level | ACC: 0.8163 | Precision: 0.8318 | Recall: 0.7930 |  MCC: 0.6333 | F1: 0.8119 | AUC: 0.8949 | AUPR: 0.9163 | way: mine 
