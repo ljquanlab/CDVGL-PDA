@@ -1,8 +1,5 @@
 # CDVGL-PDA
 
-## Contacts
-Any more questions, please do not hesitate to contact me: 20245227066@stu.suda.edu.cn.
-
 ## Introduction
 CDVGL-PDA is a contrastive dual-view graph learning framework for phosphorylation site-disease association prediction.
 ![Overview of CDVGL-PDA framework](architecture.png)
@@ -41,27 +38,27 @@ python 1_main_hard.py
 ```
 python 1_main_10fold.py
 ```
+4. predict
+- Download the model weights from [download](https://pan.baidu.com/s/1WiwJCIZZsd9g7RiFeiXjjA?pwd=6666), place them in a newly created `saved_models` directory located at the same level as the `src` folder, and then navigate to the `src` directory and run `python predict.py`.
 
 
 ## Data description
 ***data/datasets***:
-- 5_random: benchmarks with different positive-to-negative ratios
+- 1_psite_level: a low-similarity benchmark based on psite-level split
 - 2_protein_level: a low-similarity benchmark based on protein-level split
-- 1_psite_level: a low-similarity benchmark based on protein-level split
 - 3_pair_level: a low-similarity benchmark based on pair-level split
 - 4_disease_level: a low-similarity benchmark based on disease-level split
+- 5_random: benchmarks with different positive-to-negative ratios
 
 ***data/graph_feature***: This folder contains node features for all nine node types in the heterogeneous graph.
 
 ***data/node_feature***: This folder contains edge information for all ten edge types in the heterogeneous graph.
 
-***data/example***:This folder contains the input data used by the prediction scripts, which are provided as illustrative examples.
+***data/Psite_Meshname_with_residue_withID.csv***: This file contains phosphorylation site–disease associations (PDAs) collected and curated from the PTMD2.0 and PhosphoSitePlus (PSP) databases.
 
-***data/Table S20_heterogeneous graph nodes.xlsx*** :This file records the nine types of nodes in the heterogeneous graph.
+***psite.csv***: This file contains all phosphorylation sites in the PDAs dataset.
 
-***data/Table S21_heterogeneous graph edges.xlsx*** :This file records the ten types of edges in the heterogeneous graph.
-
-***data/Psite_Meshname_with_residue_withID.csv***: This file contains phosphorylation site–disease associations collected and curated from the PTMD2.0 and PhosphoSitePlus (PSP) databases.
+***Disease.csv***: This file contains all Diseases in the PDAs dataset.
 
 ## Directory Description
 
