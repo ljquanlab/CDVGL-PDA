@@ -1,0 +1,294 @@
+disease_id,Mesh_name
+0,Aarskog Syndrome
+1,"Abortion, Spontaneous"
+2,Abscess
+3,Acquired Immunodeficiency Syndrome
+4,Acute Kidney Injury
+5,Adenocarcinoma
+6,Adenocarcinoma of Lung
+7,"Adenocarcinoma, Clear Cell"
+8,"Adenocarcinoma, Follicular"
+9,Adrenal Cortex Neoplasms
+10,Adrenocortical Carcinoma
+11,Adrenoleukodystrophy
+12,Alexander Disease
+13,Alzheimer Disease
+14,Amyotrophic Lateral Sclerosis
+15,Anal Canal Carcinoma
+16,"Anemia, Sickle Cell"
+17,"Arrhythmias, Cardiac"
+18,Arrhythmogenic Right Ventricular Dysplasia
+19,Arthritis
+20,"Arthritis, Rheumatoid"
+21,Asthma
+22,Astrocytoma
+23,Ataxia Telangiectasia
+24,Atherosclerosis
+25,Atrial Fibrillation
+26,Autism Spectrum Disorder
+27,Barrett Esophagus
+28,Behcet Syndrome
+29,Bile Duct Neoplasms
+30,Bipolar Disorder
+31,Bloom Syndrome
+32,"Bone Diseases, Metabolic"
+33,Brain Diseases
+34,"Brain Diseases, Metabolic, Inborn"
+35,"Brain Injuries, Traumatic"
+36,Brain Neoplasms
+37,Breast Neoplasms
+38,Brugada Syndrome
+39,Bruton type agammaglobulinemia
+40,"Bulbo-Spinal Atrophy, X-Linked"
+41,Burkitt Lymphoma
+42,"Candidiasis, Chronic Mucocutaneous"
+43,Carcinoma
+44,"Carcinoma, Adenoid Cystic"
+45,"Carcinoma, Basal Cell"
+46,"Carcinoma, Ductal, Breast"
+47,"Carcinoma, Hepatocellular"
+48,"Carcinoma, Intraductal, Noninfiltrating"
+49,"Carcinoma, Merkel Cell"
+50,"Carcinoma, Non-Small-Cell Lung"
+51,"Carcinoma, Ovarian Epithelial"
+52,"Carcinoma, Pancreatic Ductal"
+53,"Carcinoma, Renal Cell"
+54,"Carcinoma, Squamous Cell"
+55,Cardiomegaly
+56,Cardiomyopathies
+57,"Cardiomyopathy, Dilated"
+58,"Cardiomyopathy, Hypertrophic, Familial"
+59,Cardiovascular Diseases
+60,Celiac Disease
+61,Cholangiocarcinoma
+62,Chordoma
+63,Choriocarcinoma
+64,Chronic Traumatic Encephalopathy
+65,Coffin-Lowry Syndrome
+66,Colitis
+67,Colonic Neoplasms
+68,Colorectal Neoplasms
+69,Coronary Artery Disease
+70,Corticobasal Degeneration
+71,Costello Syndrome
+72,Creutzfeldt-Jakob Syndrome
+73,Crohn Disease
+74,Cystic Fibrosis
+75,"Cystitis, Interstitial"
+76,"Death, Sudden, Cardiac"
+77,Depressive Disorder
+78,"Depressive Disorder, Major"
+79,"Dermatitis, Atopic"
+80,"Diabetes Insipidus, Nephrogenic"
+81,Diabetes Mellitus
+82,"Diabetes Mellitus, Type 2"
+83,Diabetic Cardiomyopathies
+84,Diabetic Nephropathies
+85,Diffuse Intrinsic Pontine Glioma
+86,Down Syndrome
+87,Dysostoses
+88,"Elliptocytosis, Hereditary"
+89,Encephalitis
+90,"Encephalomyelitis, Autoimmune, Experimental"
+91,Endometrial Neoplasms
+92,Endometriosis
+93,Epilepsy
+94,Esophageal Neoplasms
+95,Esophageal Squamous Cell Carcinoma
+96,Familial Hypophosphatemic Rickets
+97,Fanconi Anemia
+98,Fatty Liver
+99,Fetal Growth Retardation
+100,Fibromuscular Dysplasia
+101,Fibrosarcoma
+102,Fibrosis
+103,Fragile X Syndrome
+104,Frontotemporal Lobar Degeneration
+105,Gallbladder Neoplasms
+106,Gastrointestinal Stromal Tumors
+107,Gitelman Syndrome
+108,Glioblastoma
+109,Glioma
+110,Graft vs Host Disease
+111,Granulomatosis with Polyangiitis
+112,Granulosa Cell Tumor
+113,"Hamartoma Syndrome, Multiple"
+114,Heart Diseases
+115,Heart Failure
+116,"Hemangioma, Cavernous, Central Nervous System"
+117,Hepatitis
+118,Hepatitis B
+119,Hepatitis C
+120,Hepatoblastoma
+121,Hereditary Sensory and Autonomic Neuropathies
+122,Hodgkin Disease
+123,Huntington Disease
+124,Hydronephrosis
+125,Hyperalgesia
+126,Hypereosinophilic Syndrome
+127,Hyperesthesia
+128,"Hyperparathyroidism, Primary"
+129,"Hyperparathyroidism, Secondary"
+130,Hypertension
+131,"Hypertension, Pulmonary"
+132,Hypertriglyceridemia
+133,Idiopathic Pulmonary Fibrosis
+134,Infertility
+135,Inflammation
+136,Insulinoma
+137,Intestinal Neoplasms
+138,Ischemia
+139,Keloid
+140,Keratoconus
+141,Kidney Diseases
+142,Kidney Neoplasms
+143,Lafora Disease
+144,Laryngeal Neoplasms
+145,Leukemia
+146,"Leukemia, B-Cell"
+147,"Leukemia, Large Granular Lymphocytic"
+148,"Leukemia, Lymphocytic, Chronic, B-Cell"
+149,"Leukemia, Lymphoid"
+150,"Leukemia, Myelogenous, Chronic, BCR-ABL Positive"
+151,"Leukemia, Myeloid, Acute"
+152,"Leukemia, Myeloid, Chronic, Atypical, BCR-ABL Negative"
+153,"Leukemia, T-Cell"
+154,"Leukemia-Lymphoma, Adult T-Cell"
+155,Lewy Body Disease
+156,"Liposarcoma, Myxoid"
+157,"Liver Cirrhosis, Biliary"
+158,Liver Diseases
+159,"Liver Diseases, Alcoholic"
+160,Liver Neoplasms
+161,Lung Neoplasms
+162,"Lupus Erythematosus, Systemic"
+163,Lymphangioleiomyomatosis
+164,"Lymphohistiocytosis, Hemophagocytic"
+165,Lymphoma
+166,"Lymphoma, AIDS-Related"
+167,"Lymphoma, B-Cell"
+168,"Lymphoma, Follicular"
+169,"Lymphoma, Large B-Cell, Diffuse"
+170,"Lymphoma, Mantle-Cell"
+171,"Lymphoma, Non-Hodgkin"
+172,"Lymphoma, Primary Effusion"
+173,"Lymphoma, T-Cell"
+174,Lymphoproliferative Disorders
+175,Macrophage Activation Syndrome
+176,Marfan Syndrome
+177,Medulloblastoma
+178,Megalancephaly Polymicrogyria-Polydactyly Hydrocephalus Syndrome
+179,Melanoma
+180,Meningioma
+181,Menkes Kinky Hair Syndrome
+182,Mesothelioma
+183,Metabolic Syndrome
+184,Microcephaly
+185,Monoclonal Gammopathy of Undetermined Significance
+186,Mosaic variegated aneuploidy syndrome
+187,Mouth Abnormalities
+188,Mouth Neoplasms
+189,Multiple Myeloma
+190,Multiple Sclerosis
+191,Multiple System Atrophy
+192,"Muscular Atrophy, Spinal"
+193,Muscular Diseases
+194,"Muscular Dystrophies, Limb-Girdle"
+195,"Muscular Dystrophy, Duchenne"
+196,"Muscular Dystrophy, Emery-Dreifuss"
+197,Myelodysplastic Syndromes
+198,Myeloproliferative Disorders
+199,Myocardial Infarction
+200,Myocardial Ischemia
+201,Myocardial Stunning
+202,Myopia
+203,"Myositis, Inclusion Body"
+204,Myotonic Dystrophy
+205,Nasopharyngeal Carcinoma
+206,Neoplasms
+207,Nephrogenic Fibrosing Dermopathy
+208,Nephrosis
+209,"Neuralgia, Postherpetic"
+210,Neurilemmoma
+211,Neuroblastoma
+212,Neurodegenerative Diseases
+213,Neuroendocrine Tumors
+214,Neurofibromatoses
+215,Neuroinflammatory Diseases
+216,"Neuroma, Acoustic"
+217,Niemann-Pick Diseases
+218,Non-alcoholic Fatty Liver Disease
+219,Noonan Syndrome
+220,Obesity
+221,Osteoarthritis
+222,Osteosarcoma
+223,Ovarian Neoplasms
+224,Pancreatic Neoplasms
+225,Pancreatitis
+226,Papilloma
+227,"Paraparesis, Tropical Spastic"
+228,Paraplegia
+229,Parkinson Disease
+230,Peutz-Jeghers Syndrome
+231,Pheochromocytoma
+232,Pituitary Neoplasms
+233,Placental Insufficiency
+234,"Polycythemia, primary familial and congenital"
+235,Pre-Eclampsia
+236,Precursor Cell Lymphoblastic Leukemia-Lymphoma
+237,Precursor T-Cell Lymphoblastic Leukemia-Lymphoma
+238,Prolactinoma
+239,Prostatic Neoplasms
+240,"Prostatic Neoplasms, Castration-Resistant"
+241,Psoriasis
+242,Pterygium
+243,Pulmonary Arterial Hypertension
+244,Pulmonary Aspergillosis
+245,"Pulmonary Disease, Chronic Obstructive"
+246,Pulmonary Emphysema
+247,"Renal Insufficiency, Chronic"
+248,Reperfusion Injury
+249,Retinitis Pigmentosa
+250,Retinoblastoma
+251,Rett Syndrome
+252,Rhabdomyosarcoma
+253,Riddle Syndrome
+254,"Sarcoma, Ewing"
+255,"Sarcoma, Kaposi"
+256,"Sarcoma, Synovial"
+257,Schizophrenia
+258,"Scleroderma, Localized"
+259,"Scleroderma, Systemic"
+260,Sepsis
+261,Shwachman-Diamond Syndrome
+262,Sjogren's Syndrome
+263,Skin Neoplasms
+264,Sleep Wake Disorders
+265,Small Cell Lung Carcinoma
+266,Spinocerebellar Ataxias
+267,Squamous Cell Carcinoma of Head and Neck
+268,Status Epilepticus
+269,Stomach Neoplasms
+270,Stroke
+271,"Supranuclear Palsy, Progressive"
+272,Synucleinopathies
+273,"Tachycardia, Ventricular"
+274,Testicular Neoplasms
+275,Tetralogy of Fallot
+276,Thrombocytopenia
+277,Thrombosis
+278,Thymoma
+279,"Thyroid Cancer, Papillary"
+280,"Thyroid Carcinoma, Anaplastic"
+281,Thyroid Neoplasms
+282,Triple Negative Breast Neoplasms
+283,Tuberous Sclerosis
+284,Urethral Neoplasms
+285,Urinary Bladder Neoplasms
+286,Uterine Cervical Neoplasms
+287,Uterine Neoplasms
+288,Uveal Melanoma
+289,Ventricular Remodeling
+290,Vulvar Neoplasms
+291,Wilms Tumor
+292,Xeroderma Pigmentosum
